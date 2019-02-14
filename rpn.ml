@@ -2,41 +2,42 @@
 open Stdio
 (* open Str *)
 
-let stack = Stack.create ()
+let calc = calc.create ()
 
 let rec compute input = 
 	match input with
 	| [] -> 
-		if Stack.length stack == 1 then
-			printf "%f\n" (Stack.pop stack)
+		if calc.length calc == 1 then
+			printf "%f\n" (calc.pop calc)
 		else
 			printf "error\n"
 	| hd :: tl -> 
 		begin
 		match hd with
-		| "+" -> 
-			let op2 = Stack.pop stack in
-			let op1 = Stack.pop stack in
-			Stack.push (op1 +. op2) stack;
-		| "-" -> 
-			let op2 = Stack.pop stack in
-			let op1 = Stack.pop stack in
-			Stack.push (op1 -. op2) stack;
+		
 		| "*" -> 
-			let op2 = Stack.pop stack in
-			let op1 = Stack.pop stack in
-			Stack.push (op1 *. op2) stack;
+			let operand2 = calc.pop calc in
+			let operand1 = calc.pop calc in
+			calc.push (operand1 *. operand2) calc;
 		| "/" -> 
-			let op2 = Stack.pop stack in
-			let op1 = Stack.pop stack in
-			Stack.push (op1 /. op2) stack;
+			let operand2 = calc.pop calc in
+			let operand1 = calc.pop calc in
+			calc.push (operand1 /. operand2) calc;
 		| "^" -> 
-			let op2 = Stack.pop stack in
-			let op1 = Stack.pop stack in
-			Stack.push (op1 ** op2) stack;
-		| token ->
-			let fl = Float.of_string token in
-			Stack.push fl stack;
+			let operand2 = calc.pop calc in
+			let operand1 = calc.pop calc in
+			calc.push (operand1 ** operand2) calc;
+		| "+" -> 
+			let operand2 = calc.pop calc in
+			let operand1 = calc.pop calc in
+			calc.push (operand1 +. operand2) calc;
+		| "-" -> 
+			let operand2 = calc.pop calc in
+			let operand1 = calc.pop calc in
+			calc.push (operand1 -. operand2) calc;
+		| target ->
+			let fl = Float.of_string target in
+			calc.push fl calc;
 		end
 
 		; compute tl
@@ -50,17 +51,3 @@ let () =
 		with End_of_file
 			-> ()
 	done;
-
-
-
-(*
-let rec read_and_accumulate accum =
-  let line = In_channel.input_line In_channel.stdin in
-  match line with
-  | None -> accum
-  | Some x -> read_and_accumulate (accum +. Float.of_string x)
-
-let () =
-  printf "Total: %F\n" (read_and_accumulate 0.)
-
-  *)

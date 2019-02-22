@@ -18,6 +18,11 @@ type state =
 let evalOp (s: string) (op1: float)  (op2: float) : float =
     match s with    
         | "+" -> op1+.op2
+        | "-" -> op1-.op2
+        | "*" -> op1*.op2
+        | "/" -> op1/.op2
+        | "^" -> op1**.op2
+        | "%" -> op1%.op2
         | _ -> 0.0
         (* 
             implement all operators

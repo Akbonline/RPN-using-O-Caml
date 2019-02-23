@@ -1,0 +1,3 @@
+(executable
+	(name		rpn)
+	(libraries 	str stdio))

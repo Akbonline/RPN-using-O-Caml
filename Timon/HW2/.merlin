@@ -1,0 +1,15 @@
+B /home/tangerhofer/.opam/4.06.1/lib/base
+B /home/tangerhofer/.opam/4.06.1/lib/base/caml
+B /home/tangerhofer/.opam/4.06.1/lib/base/shadow_stdlib
+B /home/tangerhofer/.opam/4.06.1/lib/ocaml
+B /home/tangerhofer/.opam/4.06.1/lib/sexplib0
+B /home/tangerhofer/.opam/4.06.1/lib/stdio
+B _build/default/.rpn.eobjs
+S /home/tangerhofer/.opam/4.06.1/lib/base
+S /home/tangerhofer/.opam/4.06.1/lib/base/caml
+S /home/tangerhofer/.opam/4.06.1/lib/base/shadow_stdlib
+S /home/tangerhofer/.opam/4.06.1/lib/ocaml
+S /home/tangerhofer/.opam/4.06.1/lib/sexplib0
+S /home/tangerhofer/.opam/4.06.1/lib/stdio
+S .
+FLG -w @a-4-29-40-41-42-44-45-48-58-59-60-40 -strict-sequence -strict-formats -short-paths -keep-locs

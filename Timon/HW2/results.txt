@@ -1,0 +1,9 @@
+3.000000
+-1.000000
+50.000000
+0.755102
+81.000000
+5.000000
+Too many operands
+Not enough arguments for +
+Unknown token NotAToken

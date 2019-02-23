@@ -4,7 +4,6 @@
 9.000000
 Unknown token aasdsf
 Not enough arguments for *
-Incorrect RPN expression. Operator Overload
 5.000000
 9.000000
 9.000000

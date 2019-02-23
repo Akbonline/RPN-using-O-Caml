@@ -1,3 +1,5 @@
+open Stdlib
+open Printf
 type token = 
     | Num of float
     | Op of string
@@ -5,7 +7,7 @@ type token =
 
 let toToken (str: string) : token = 
         match str with
-        | "+" | "-" | "*" | "/" -> Op(str)
+        | "+" | "-" | "*" | "/" | "^" -> Op(str)
         | _ -> let f=float_of_string_opt(str) in 
             match f with
                 | Some(flt) -> Num(flt)
@@ -21,13 +23,9 @@ let evalOp (s: string) (op1: float)  (op2: float) : float =
         | "-" -> op1-.op2
         | "*" -> op1*.op2
         | "/" -> op1/.op2
-        | "^" -> op1**.op2
-        | "%" -> op1%.op2
+        | "^" -> op1**op2
         | _ -> 0.0
-        (* 
-            implement all operators
-        *)
-
+        
 let nextState (st: state) (t: token) : state =
     match st with
     | SError(str) -> st
@@ -50,3 +48,13 @@ let procRPN str =
       Finish testing for correctness of final state
       Print error from state or final error 
     *)
+let () = 
+    
+    try let line = read_line () in
+        let strList = Str.split (Str.regexp " +") line in
+        try	
+            printf "%f\n" (procRPN strList)
+        with RPNFail
+            -> printf "Invalid computation\n"
+    with End_of_file
+        -> ()

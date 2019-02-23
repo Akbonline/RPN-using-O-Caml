@@ -11,7 +11,6 @@ let test_fixture = "RPN" >:::
 		assert_equal ("Not enough arguments for *") (rpn.procRPN ["23";"*"]);
 		assert_equal (5.000000) (rpn.procRPN ["15"; "7"; "1"; "1"; "+"; "-"; "/"; "3"; "*"; "2"; "1"; "1"; "+"; "+"; "-"]);
 		assert_equal (3.0 **.2.0) (rpn.procRPN ["3";"2";"^"]);
-		assert_equal ("Incorrect RPN expression. Operator Overload") (rpn.procRPN ["aasdsf"]);
 	);
 ]
 
